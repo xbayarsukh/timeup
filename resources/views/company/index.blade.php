@@ -276,8 +276,8 @@
                       <td class="align-middle text-center text-sm">
                         <span class="text-xs font-weight-bold"> 
                           @foreach ($check_locs as $check_loc)
-                            @if ($location->id == $checkloc->id)
-                              {{$checkloc->ucount}}
+                            @if ($location->id == $check_loc->id)
+                              {{$check_loc->ucount}}
                             @endif
                           @endforeach  
                         </span>
@@ -366,7 +366,7 @@ new Chart("myChart", {
       borderColor: "green",
       fill: false
     }, { 
-      data: [{{count($ago13)}},{{count($ago12)}},{{count($ago12)}},{{count($ago12)}},{{count($ago12)}},{{count($ago12)}},{{count($ago12)}},{{count($ago12)}},{{count($ago12)}},{{count($ago12)}},{{count($ago12)}},{{count($ago12)}},{{count($ago12)}},{{count($ago12)}},],
+      data: [{{count($ago13)}},{{count($ago12)}},{{count($ago11)}},{{count($ago10)}},{{count($ago9)}},{{count($ago8)}},{{count($ago7)}},{{count($ago6)}},{{count($ago5)}},{{count($ago4)}},{{count($ago3)}},{{count($ago2)}},{{count($ago1)}},{{count($today)}},],
       borderColor: "blue",
       fill: false
     }]
