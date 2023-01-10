@@ -84,6 +84,13 @@ $router->group(['middleware' => ['auth']], function($router) {
         Route::post('/edit', 'ChecktimeController@update');
         Route::get('/delete/{id}', 'ChecktimeController@delete');
     });
+
+    Route::prefix('admin/salaries')->group(function (){
+        Route::get('/', 'SalaryController@index');
+        Route::get('/salary/{id}', 'SalaryController@salary');
+        Route::post('/calculate', 'SalaryController@calc');
+        Route::get('/salarylist/{id}', 'SalaryController@list');
+    });
 });
 
 $router->group(['middleware' => ['role_id']], function($router) {

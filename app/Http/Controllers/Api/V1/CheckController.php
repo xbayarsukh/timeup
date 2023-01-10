@@ -34,7 +34,7 @@ class CheckController extends Controller
             return $c;
         }
         if($input['type'] == 'morning'){
-            $locations = DB::table('locations')->join('time_role', 'locations.time_role_id', 'time_role.id')->join('users', 'time_role.id', 'users.time_role_id')->where('users.id', $company_id = Auth::user()->id)->select('locations.*')->get();
+            $locations = DB::table('locations')->join('time_role', 'locations.id', 'time_role.locations_id')->join('users', 'time_role.id', 'users.time_role_id')->where('users.id', $company_id = Auth::user()->id)->select('locations.*')->get();
             foreach ($locations as $location) {
                 $vertices_x = array();
                 $vertices_y = array();
@@ -64,7 +64,7 @@ class CheckController extends Controller
             
             return $response;
         }elseif ($input['type'] == 'night') {
-            $locations = DB::table('locations')->join('time_role', 'locations.time_role_id', 'time_role.id')->join('users', 'time_role.id', 'users.time_role_id')->where('users.id', $company_id = Auth::user()->id)->select('locations.*')->get();
+            $locations = DB::table('locations')->join('time_role', 'locations.id', 'time_role.locations_id')->join('users', 'time_role.id', 'users.time_role_id')->where('users.id', $company_id = Auth::user()->id)->select('locations.*')->get();
             foreach ($locations as $location) {
                 $vertices_x = array();
                 $vertices_y = array();
@@ -137,7 +137,7 @@ class CheckController extends Controller
     }
 
     public function polygon(){
-        $polygons = DB::table('polygon')->join('locations', 'polygon.locations_id', 'locations.id')->join('time_role', 'locations.time_role_id', 'time_role.id')->join('users', 'time_role.id', 'users.time_role_id')->where('users.id', $company_id = Auth::user()->id)->select('polygon.*')->get();
+        $polygons = DB::table('polygon')->join('locations', 'polygon.locations_id', 'locations.id')->join('time_role', 'locations.id', 'time_role.locations_id')->join('users', 'time_role.id', 'users.time_role_id')->where('users.id', $company_id = Auth::user()->id)->select('polygon.*')->get();
         return response()->json($polygons); 
     }
 

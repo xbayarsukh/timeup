@@ -355,30 +355,30 @@
         date.setDate(date.getDate() - 1);
         var thirtyago = (date.getMonth()+1) + '/' + date.getDate();
 
-var xValues = [thirtyago,twelveago,elevenago,tenago,nineago,eightago,sevenago,sixago,fiveago,fourago,threeago,twoago,oneago,today];
+        var xValues = [thirtyago,twelveago,elevenago,tenago,nineago,eightago,sevenago,sixago,fiveago,fourago,threeago,twoago,oneago,today];
 
-new Chart("myChart", {
-  type: "line",
-  data: {
-    labels: xValues,
-    datasets: [{ 
-      data: [{{$company->employees}},{{$company->employees}},{{$company->employees}},{{$company->employees}},{{$company->employees}},{{$company->employees}},{{$company->employees}},{{$company->employees}},{{$company->employees}},{{$company->employees}},{{$company->employees}},{{$company->employees}},{{$company->employees}},{{$company->employees}}],
-      borderColor: "green",
-      fill: false
-    }, { 
-      data: [{{count($ago13)}},{{count($ago12)}},{{count($ago11)}},{{count($ago10)}},{{count($ago9)}},{{count($ago8)}},{{count($ago7)}},{{count($ago6)}},{{count($ago5)}},{{count($ago4)}},{{count($ago3)}},{{count($ago2)}},{{count($ago1)}},{{count($today)}},],
-      borderColor: "blue",
-      fill: false
-    }]
-  },
-  options: {
-    legend: {display: false},
-    scales: {
-      yAxes: [{ticks: {min: 0}}],
-    }
-  }
-});
-</script>
+        new Chart("myChart", {
+          type: "line",
+          data: {
+            labels: xValues,
+            datasets: [{ 
+              data: [{{$company->employees}},{{$company->employees}},{{$company->employees}},{{$company->employees}},{{$company->employees}},{{$company->employees}},{{$company->employees}},{{$company->employees}},{{$company->employees}},{{$company->employees}},{{$company->employees}},{{$company->employees}},{{$company->employees}},{{$company->employees}}],
+              borderColor: "green",
+              fill: false
+            }, { 
+              data: [{{count($ago13)}},{{count($ago12)}},{{count($ago11)}},{{count($ago10)}},{{count($ago9)}},{{count($ago8)}},{{count($ago7)}},{{count($ago6)}},{{count($ago5)}},{{count($ago4)}},{{count($ago3)}},{{count($ago2)}},{{count($ago1)}},{{count($today)}},],
+              borderColor: "blue",
+              fill: false
+            }]
+          },
+          options: {
+            legend: {display: false},
+            scales: {
+              yAxes: [{ticks: {min: 0}}],
+            }
+          }
+        });
+      </script>
       <script>
         var win = navigator.platform.indexOf('Win') > -1;
         if (win && document.querySelector('#sidenav-scrollbar')) {
